@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home"
+    app:startDestination="@id/splashScreen">
+
+    <fragment
+        android:id="@+id/logIn"
+        android:name="com.example.todolist.LogIn"
+        android:label="fragment_log_in"
+        tools:layout="@layout/fragment_log_in" >
+        <action
+            android:id="@+id/action_logIn_to_signUp"
+            app:destination="@id/signUp" />
+        <action
+            android:id="@+id/action_logIn_to_displayAll"
+            app:destination="@id/displayAll" />
+        <action
+            android:id="@+id/action_logIn_to_forgetPassword"
+            app:destination="@id/forgetPassword" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUp"
+        android:name="com.example.todolist.SignUp"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUp_to_displayAll"
+            app:destination="@id/displayAll" />
+    </fragment>
+    <fragment
+        android:id="@+id/displayAll"
+        android:name="com.example.todolist.DisplayAll"
+        android:label="fragment_display_all"
+        tools:layout="@layout/fragment_display_all" >
+        <action
+            android:id="@+id/action_displayAll_to_displayOne"
+            app:destination="@id/displayOne" />
+        <action
+            android:id="@+id/action_displayAll_to_edit"
+            app:destination="@id/edit" />
+        <action
+            android:id="@+id/action_displayAll_to_logIn"
+            app:destination="@id/logIn" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/displayOne"
+        android:name="com.example.todolist.DisplayOne"
+        android:label="fragment_display_one"
+        tools:layout="@layout/fragment_display_one" >
+        <action
+            android:id="@+id/action_displayOne_to_displayAll"
+            app:destination="@id/displayAll" />
+        <argument
+            android:name="nameOfTask"
+            app:argType="string"
+            android:defaultValue="null" />
+    </fragment>
+    <fragment
+        android:id="@+id/edit"
+        android:name="com.example.todolist.Edit"
+        android:label="fragment_edit"
+        tools:layout="@layout/fragment_edit" >
+        <action
+            android:id="@+id/action_edit_to_displayAll"
+            app:destination="@id/displayAll" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.example.todolist.SplashScreen"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreen_to_logIn"
+            app:destination="@id/logIn" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgetPassword"
+        android:name="com.example.todolist.forgetPassword"
+        android:label="fragment_forget_password"
+        tools:layout="@layout/fragment_forget_password" >
+        <action
+            android:id="@+id/action_forgetPassword_to_logIn"
+            app:destination="@id/logIn" />
+    </fragment>
+</navigation>
